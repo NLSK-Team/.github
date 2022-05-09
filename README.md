@@ -11,8 +11,8 @@ Consistently every project should have at least 2 branches
 Developers on the project should be commiting to branches at least once every 3 hours of working
 to have historical records of working or almost working versions.
 
-# Commits that are not working and are not from either of the two main working branches above should be commited 
-to a new branch that is titles after the feature or main feature they are working on, and on a working iteraion of that branch should be join with beta
+ ***Commits that are not working and are not from either of the two main working branches above should be commited 
+to a new branch*** that is titled after the feature or main feature they are working on, and on a working iteraion of that branch should be join with beta
 then after testing staged onto the main branch.
 
 ## Tags:
