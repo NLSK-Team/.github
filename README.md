@@ -69,7 +69,7 @@ Variable names should clearly express the intention or the data that they hold. 
 - String: `str`
 - Pointer: `p`
 
-We use an underscore (`_`) between words in the variable name, but not between the type abbreviation and the name. Here are some examples:
+We use an underscore (`_`) between words in the function name, but not in the variable name. Here are some examples:
 
 ```cpp
 int iAppleCount = 10;
