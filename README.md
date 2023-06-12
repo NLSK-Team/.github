@@ -117,3 +117,81 @@ void My_Function_Name()
 ```
 
 By following this guide, we can ensure that our codebase remains consistent, which in turn aids readability and maintainability. Thank you for adhering to these guidelines.
+Here is a large code snippet:
+```cpp
+// game.h
+#pragma once
+
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+class Number_Guess_Game
+{
+public:
+    void Start_Game();
+private:
+    int Generate_Random_Number();
+    void Process_Guess(int iGuess);
+    bool Check_Guess(int iGuess, int iCorrectNumber);
+};
+
+// game.cpp
+#include "game.h"
+
+void Number_Guess_Game::Start_Game()
+{
+    srand(time(0)); // Initialize random seed
+    int iCorrectNumber = Generate_Random_Number();
+
+    std::cout << "Welcome to the Number Guessing Game!\n";
+    std::cout << "Guess a number between 1 and 100:\n";
+
+    int iGuess;
+    do
+    {
+        std::cin >> iGuess;
+        Process_Guess(iGuess);
+    } while (!Check_Guess(iGuess, iCorrectNumber));
+
+    std::cout << "Congratulations! You've correctly guessed the number: " << iCorrectNumber << "\n";
+}
+
+int Number_Guess_Game::Generate_Random_Number()
+{
+    return rand() % 100 + 1; // Generate random number between 1 and 100
+}
+
+void Number_Guess_Game::Process_Guess(int iGuess)
+{
+    std::cout << "You've guessed: " << iGuess << "\n";
+}
+
+bool Number_Guess_Game::Check_Guess(int iGuess, int iCorrectNumber)
+{
+    if(iGuess < iCorrectNumber)
+    {
+        std::cout << "Too low! Try again.\n";
+        return false;
+    }
+    else if(iGuess > iCorrectNumber)
+    {
+        std::cout << "Too high! Try again.\n";
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+// main.cpp
+#include "game.h"
+
+int main()
+{
+    Number_Guess_Game game;
+    game.Start_Game();
+    return 0;
+}
+```
