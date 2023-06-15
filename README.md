@@ -72,10 +72,10 @@ Variable names should clearly express the intention or the data that they hold. 
 We use an underscore (`_`) between words in the function name, but not in the variable name. Here are some examples:
 
 ```cpp
-int iAppleCount = 10;
-float flAppleWeight = 1.5;
-char cFirstLetter = 'a';
-std::string strAppleType = "Granny Smith";
+int i_AppleCount = 10;
+float fl_AppleWeight = 1.5;
+char c_FirstLetter = 'a';
+std::string str_AppleType = "Granny Smith";
 ```
 
 ### Class Naming
@@ -132,8 +132,8 @@ public:
     void Start_Game();
 private:
     int Generate_Random_Number();
-    void Process_Guess(int iGuess);
-    bool Check_Guess(int iGuess, int iCorrectNumber);
+    void Process_Guess(int i_Guess);
+    bool Check_Guess(int i_Guess, int i_CorrectNumber);
 };
 
 // game.cpp
@@ -142,19 +142,19 @@ private:
 void Number_Guess_Game::Start_Game()
 {
     srand(time(0)); // Initialize random seed
-    int iCorrectNumber = Generate_Random_Number();
+    int i_CorrectNumber = Generate_Random_Number();
 
     std::cout << "Welcome to the Number Guessing Game!\n";
     std::cout << "Guess a number between 1 and 100:\n";
 
-    int iGuess;
+    int i_Guess;
     do
     {
-        std::cin >> iGuess;
-        Process_Guess(iGuess);
-    } while (!Check_Guess(iGuess, iCorrectNumber));
+        std::cin >> i_Guess;
+        Process_Guess(i_Guess);
+    } while (!Check_Guess(i_Guess, i_CorrectNumber));
 
-    std::cout << "Congratulations! You've correctly guessed the number: " << iCorrectNumber << "\n";
+    std::cout << "Congratulations! You've correctly guessed the number: " << i_CorrectNumber << "\n";
 }
 
 int Number_Guess_Game::Generate_Random_Number()
@@ -162,19 +162,19 @@ int Number_Guess_Game::Generate_Random_Number()
     return rand() % 100 + 1; // Generate random number between 1 and 100
 }
 
-void Number_Guess_Game::Process_Guess(int iGuess)
+void Number_Guess_Game::Process_Guess(int i_Guess)
 {
-    std::cout << "You've guessed: " << iGuess << "\n";
+    std::cout << "You've guessed: " << i_Guess << "\n";
 }
 
-bool Number_Guess_Game::Check_Guess(int iGuess, int iCorrectNumber)
+bool Number_Guess_Game::Check_Guess(int i_Guess, int i_CorrectNumber)
 {
-    if(iGuess < iCorrectNumber)
+    if(i_Guess < i_CorrectNumber)
     {
         std::cout << "Too low! Try again.\n";
         return false;
     }
-    else if(iGuess > iCorrectNumber)
+    else if(i_Guess > i_CorrectNumber)
     {
         std::cout << "Too high! Try again.\n";
         return false;
@@ -190,8 +190,9 @@ bool Number_Guess_Game::Check_Guess(int iGuess, int iCorrectNumber)
 
 int main()
 {
-    Number_Guess_Game game;
-    game.Start_Game();
+    Number_Guess_Game Game_Instance;
+    Game_Instance.Start_Game();
     return 0;
 }
+
 ```
